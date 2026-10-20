@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-20T23:32:06.126Z",
+  "title": "SemverConstraintLock",
+  "kind": "independent_intelligent_contract",
+  "profileSeq": 9,
+  "contractAddress": "0x3916c2DF6D2BFb12913dfB59277326bC71b0F707",
+  "transactionHash": "0xe8d1b065dd22e1e9b96882c77a439680b1cd9f935295ae8551fc8f45cc391002",
+  "sourceSha256": "9b6b1136b0bca3313e95fae6335078992ce8b87f29e839aa8278c977bdb5374d",
+  "network": "GenLayer Studio",
+  "chainId": 61999,
+  "constructorArgs": [],
+  "state": "FINALIZED",
+  "executionResult": "SUCCESS",
+  "executionMode": "NORMAL",
+  "leaderOnly": false,
+  "consensusResult": "MAJORITY_AGREE",
+  "value": 0,
+  "liveScope": "Constructor only; no real-source catalog locking or full lifecycle exercised live.",
+  "publicSourceBytesVerified": false,
+  "onchainSourceSha256": "9b6b1136b0bca3313e95fae6335078992ce8b87f29e839aa8278c977bdb5374d",
+  "onchainCodeReadbackVerified": true,
+  "publication": null
+}

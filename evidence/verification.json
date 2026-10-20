@@ -1,0 +1,29 @@
+{
+  "source": "semver_constraint_lock.py",
+  "source_sha256": "9b6b1136b0bca3313e95fae6335078992ce8b87f29e839aa8278c977bdb5374d",
+  "genvm_release": "v0.2.12",
+  "runner": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6",
+  "stdlib": "py-lib-genlayer-std:11rhn002yfajawsz7fai6mykznbxkxs6l91iskj5cm82c92qhy3v",
+  "packages": {
+    "genlayer-test": "0.29.2",
+    "genvm-linter": "0.11.0",
+    "cloudpickle": "3.1.2",
+    "pytest": "9.1.1"
+  },
+  "checks": {
+    "tests": {
+      "exit_code": 0,
+      "passed": true
+    },
+    "lint": {
+      "exit_code": 0,
+      "passed": true
+    },
+    "schema": {
+      "exit_code": 0,
+      "passed": true
+    }
+  },
+  "live_consensus_tested": false,
+  "deployment": null
+}

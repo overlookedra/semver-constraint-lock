@@ -1,0 +1,64 @@
+WARNING: File `gltest.config.yaml` not found in the current directory, using default config, create a `gltest.config.yaml` file to manage multiple networks
+INFO: Clearing artifacts directory: artifacts
+INFO: Using the following configuration:
+INFO:   RPC URL: http://127.0.0.1:4000/api
+INFO:   Selected Network: localnet
+INFO:   Available networks: ['localnet', 'studionet', 'testnet_asimov', 'testnet_bradbury']
+INFO:   Selected chain type: localnet
+INFO:   Available chains: localnet, studionet, testnet_asimov, testnet_bradbury
+INFO:   Contracts directory: contracts
+INFO:   Artifacts directory: artifacts
+INFO:   Environment: .env
+INFO:   Default wait interval: 3000 ms
+INFO:   Default wait retries: 50
+INFO:   Leader only mode: False
+.............FF.                                                         [100%]
+================================== FAILURES ===================================
+___ test_intersections_from_explicit_synthetic_manifests[ranges3-CONFLICT] ____
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000029BF2F77740>
+ranges = ['>2.29.0', '<2.29.1'], expected = 'CONFLICT'
+
+    @pytest.mark.parametrize('ranges,expected',[(['>=2.0.0 <3.0.0','>=3.0.0'],'CONFLICT'),(['~2.29.0','>=2.29.1 <=2.29.5'],'READY'),(['^0.0.4','0.0.5'],'CONFLICT'),(['>2.29.0','<2.29.1'],'CONFLICT'),(['>999999.999999.999999','>=0.0.0'],'CONFLICT')])
+    def test_intersections_from_explicit_synthetic_manifests(direct_vm,direct_deploy,ranges,expected):
+        c=deploy(direct_vm,direct_deploy);sources=[]
+        for i,expression in enumerate(ranges):
+            body=json.dumps({'name':'synthetic-'+str(i),'version':'1.0.0','dependencies':{'viem':expression}})
+            url=SOURCE['url'].replace('/package.json','/synthetic-'+str(i)+'.json')
+            sources.append({'url':url,'sha256':hashlib.sha256(body.encode()).hexdigest(),'package':'synthetic-'+str(i),'section':'dependencies','dependency':'viem'})
+            direct_vm.mock_web(re.escape(url),{'status':200,'body':body})
+        c.open_lock('sdk',json.dumps(sources));c.capture('sdk')
+>       assert c.get_lock('sdk')['status']==expected
+E       AssertionError: assert 'READY' == 'CONFLICT'
+E         
+E         - CONFLICT
+E         + READY
+
+tests\test_semver.py:73: AssertionError
+___ test_intersections_from_explicit_synthetic_manifests[ranges4-CONFLICT] ____
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000029BF302A160>
+ranges = ['>999999.999999.999999', '>=0.0.0'], expected = 'CONFLICT'
+
+    @pytest.mark.parametrize('ranges,expected',[(['>=2.0.0 <3.0.0','>=3.0.0'],'CONFLICT'),(['~2.29.0','>=2.29.1 <=2.29.5'],'READY'),(['^0.0.4','0.0.5'],'CONFLICT'),(['>2.29.0','<2.29.1'],'CONFLICT'),(['>999999.999999.999999','>=0.0.0'],'CONFLICT')])
+    def test_intersections_from_explicit_synthetic_manifests(direct_vm,direct_deploy,ranges,expected):
+        c=deploy(direct_vm,direct_deploy);sources=[]
+        for i,expression in enumerate(ranges):
+            body=json.dumps({'name':'synthetic-'+str(i),'version':'1.0.0','dependencies':{'viem':expression}})
+            url=SOURCE['url'].replace('/package.json','/synthetic-'+str(i)+'.json')
+            sources.append({'url':url,'sha256':hashlib.sha256(body.encode()).hexdigest(),'package':'synthetic-'+str(i),'section':'dependencies','dependency':'viem'})
+            direct_vm.mock_web(re.escape(url),{'status':200,'body':body})
+        c.open_lock('sdk',json.dumps(sources));c.capture('sdk')
+>       assert c.get_lock('sdk')['status']==expected
+E       AssertionError: assert 'READY' == 'CONFLICT'
+E         
+E         - CONFLICT
+E         + READY
+
+tests\test_semver.py:73: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_semver.py::test_intersections_from_explicit_synthetic_manifests[ranges3-CONFLICT]
+FAILED tests/test_semver.py::test_intersections_from_explicit_synthetic_manifests[ranges4-CONFLICT]
+2 failed, 14 passed in 1.65s

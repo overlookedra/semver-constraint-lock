@@ -1,0 +1,445 @@
+WARNING: File `gltest.config.yaml` not found in the current directory, using default config, create a `gltest.config.yaml` file to manage multiple networks
+INFO: Using the following configuration:
+INFO:   RPC URL: http://127.0.0.1:4000/api
+INFO:   Selected Network: localnet
+INFO:   Available networks: ['localnet', 'studionet', 'testnet_asimov', 'testnet_bradbury']
+INFO:   Selected chain type: localnet
+INFO:   Available chains: localnet, studionet, testnet_asimov, testnet_bradbury
+INFO:   Contracts directory: contracts
+INFO:   Artifacts directory: artifacts
+INFO:   Environment: .env
+INFO:   Default wait interval: 3000 ms
+INFO:   Default wait retries: 50
+INFO:   Leader only mode: False
+FFFFFFFFFFFFFF                                                           [100%]
+================================== FAILURES ===================================
+______________ test_real_manifest_capture_and_version_selection _______________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019F9C121620>
+
+    def test_real_manifest_capture_and_version_selection(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);captured(direct_vm,c)
+                                          ^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_semver.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_semver.py:17: in captured
+    opened(vm,c,dependency);c.capture('sdk')
+    ^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_semver.py:15: in opened
+    c.open_lock('sdk',json.dumps(inputs(dependency)));serve(vm)
+    ^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <CalldataProxy for <_contract_semver_constraint_lock.SemverConstraintLock object at 0x0000019F9C207050>>
+name = 'open_lock'
+
+    def _proxy_getattr(self: Any, name: str) -> Any:
+        inst = object.__getattribute__(self, '_instance')
+>       attr = getattr(inst, name)
+               ^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'SemverConstraintLock' object has no attribute 'open_lock'
+
+..\..\..\tooling\.venv\Lib\site-packages\gltest\direct\loader.py:427: AttributeError
+____________ test_outside_or_nonstable_candidate_rejected[2.28.9] _____________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019F9C121580>
+version = '2.28.9'
+
+    @pytest.mark.parametrize('version',['2.28.9','3.0.0','2.30.0-beta.1','v2.30.0','02.30.0'])
+    def test_outside_or_nonstable_candidate_rejected(direct_vm,direct_deploy,version):
+>       c=deploy(direct_vm,direct_deploy);captured(direct_vm,c)
+                                          ^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_semver.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_semver.py:17: in captured
+    opened(vm,c,dependency);c.capture('sdk')
+    ^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_semver.py:15: in opened
+    c.open_lock('sdk',json.dumps(inputs(dependency)));serve(vm)
+    ^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <CalldataProxy for <_contract_semver_constraint_lock.SemverConstraintLock object at 0x0000019F9C331820>>
+name = 'open_lock'
+
+    def _proxy_getattr(self: Any, name: str) -> Any:
+        inst = object.__getattribute__(self, '_instance')
+>       attr = getattr(inst, name)
+               ^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'SemverConstraintLock' object has no attribute 'open_lock'
+
+..\..\..\tooling\.venv\Lib\site-packages\gltest\direct\loader.py:427: AttributeError
+_____________ test_outside_or_nonstable_candidate_rejected[3.0.0] _____________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019F9C34CEA0>
+version = '3.0.0'
+
+    @pytest.mark.parametrize('version',['2.28.9','3.0.0','2.30.0-beta.1','v2.30.0','02.30.0'])
+    def test_outside_or_nonstable_candidate_rejected(direct_vm,direct_deploy,version):
+>       c=deploy(direct_vm,direct_deploy);captured(direct_vm,c)
+                                          ^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_semver.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_semver.py:17: in captured
+    opened(vm,c,dependency);c.capture('sdk')
+    ^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_semver.py:15: in opened
+    c.open_lock('sdk',json.dumps(inputs(dependency)));serve(vm)
+    ^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <CalldataProxy for <_contract_semver_constraint_lock.SemverConstraintLock object at 0x0000019F9C3E7380>>
+name = 'open_lock'
+
+    def _proxy_getattr(self: Any, name: str) -> Any:
+        inst = object.__getattribute__(self, '_instance')
+>       attr = getattr(inst, name)
+               ^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'SemverConstraintLock' object has no attribute 'open_lock'
+
+..\..\..\tooling\.venv\Lib\site-packages\gltest\direct\loader.py:427: AttributeError
+_________ test_outside_or_nonstable_candidate_rejected[2.30.0-beta.1] _________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019F9C356B60>
+version = '2.30.0-beta.1'
+
+    @pytest.mark.parametrize('version',['2.28.9','3.0.0','2.30.0-beta.1','v2.30.0','02.30.0'])
+    def test_outside_or_nonstable_candidate_rejected(direct_vm,direct_deploy,version):
+>       c=deploy(direct_vm,direct_deploy);captured(direct_vm,c)
+                                          ^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_semver.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_semver.py:17: in captured
+    opened(vm,c,dependency);c.capture('sdk')
+    ^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_semver.py:15: in opened
+    c.open_lock('sdk',json.dumps(inputs(dependency)));serve(vm)
+    ^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <CalldataProxy for <_contract_semver_constraint_lock.SemverConstraintLock object at 0x0000019F9C443FE0>>
+name = 'open_lock'
+
+    def _proxy_getattr(self: Any, name: str) -> Any:
+        inst = object.__getattribute__(self, '_instance')
+>       attr = getattr(inst, name)
+               ^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'SemverConstraintLock' object has no attribute 'open_lock'
+
+..\..\..\tooling\.venv\Lib\site-packages\gltest\direct\loader.py:427: AttributeError
+____________ test_outside_or_nonstable_candidate_rejected[v2.30.0] ____________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019F9C4A0680>
+version = 'v2.30.0'
+
+    @pytest.mark.parametrize('version',['2.28.9','3.0.0','2.30.0-beta.1','v2.30.0','02.30.0'])
+    def test_outside_or_nonstable_candidate_rejected(direct_vm,direct_deploy,version):
+>       c=deploy(direct_vm,direct_deploy);captured(direct_vm,c)
+                                          ^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_semver.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_semver.py:17: in captured
+    opened(vm,c,dependency);c.capture('sdk')
+    ^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_semver.py:15: in opened
+    c.open_lock('sdk',json.dumps(inputs(dependency)));serve(vm)
+    ^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <CalldataProxy for <_contract_semver_constraint_lock.SemverConstraintLock object at 0x0000019F9C40CAA0>>
+name = 'open_lock'
+
+    def _proxy_getattr(self: Any, name: str) -> Any:
+        inst = object.__getattribute__(self, '_instance')
+>       attr = getattr(inst, name)
+               ^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'SemverConstraintLock' object has no attribute 'open_lock'
+
+..\..\..\tooling\.venv\Lib\site-packages\gltest\direct\loader.py:427: AttributeError
+____________ test_outside_or_nonstable_candidate_rejected[02.30.0] ____________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019F9C51D6C0>
+version = '02.30.0'
+
+    @pytest.mark.parametrize('version',['2.28.9','3.0.0','2.30.0-beta.1','v2.30.0','02.30.0'])
+    def test_outside_or_nonstable_candidate_rejected(direct_vm,direct_deploy,version):
+>       c=deploy(direct_vm,direct_deploy);captured(direct_vm,c)
+                                          ^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_semver.py:30: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_semver.py:17: in captured
+    opened(vm,c,dependency);c.capture('sdk')
+    ^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_semver.py:15: in opened
+    c.open_lock('sdk',json.dumps(inputs(dependency)));serve(vm)
+    ^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <CalldataProxy for <_contract_semver_constraint_lock.SemverConstraintLock object at 0x0000019F9C532480>>
+name = 'open_lock'
+
+    def _proxy_getattr(self: Any, name: str) -> Any:
+        inst = object.__getattribute__(self, '_instance')
+>       attr = getattr(inst, name)
+               ^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'SemverConstraintLock' object has no attribute 'open_lock'
+
+..\..\..\tooling\.venv\Lib\site-packages\gltest\direct\loader.py:427: AttributeError
+______________________ test_zero_major_caret_boundaries _______________________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019F9C5DEFC0>
+
+    def test_zero_major_caret_boundaries(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);captured(direct_vm,c,'typescript-parsec')
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_semver.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_semver.py:17: in captured
+    opened(vm,c,dependency);c.capture('sdk')
+    ^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_semver.py:15: in opened
+    c.open_lock('sdk',json.dumps(inputs(dependency)));serve(vm)
+    ^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <CalldataProxy for <_contract_semver_constraint_lock.SemverConstraintLock object at 0x0000019F9C3E7BF0>>
+name = 'open_lock'
+
+    def _proxy_getattr(self: Any, name: str) -> Any:
+        inst = object.__getattribute__(self, '_instance')
+>       attr = getattr(inst, name)
+               ^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'SemverConstraintLock' object has no attribute 'open_lock'
+
+..\..\..\tooling\.venv\Lib\site-packages\gltest\direct\loader.py:427: AttributeError
+__________________ test_validator_recomputes_range_and_fetch __________________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019F9C648900>
+
+    def test_validator_recomputes_range_and_fetch(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);captured(direct_vm,c)
+                                          ^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_semver.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_semver.py:17: in captured
+    opened(vm,c,dependency);c.capture('sdk')
+    ^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_semver.py:15: in opened
+    c.open_lock('sdk',json.dumps(inputs(dependency)));serve(vm)
+    ^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <CalldataProxy for <_contract_semver_constraint_lock.SemverConstraintLock object at 0x0000019F9C6AC650>>
+name = 'open_lock'
+
+    def _proxy_getattr(self: Any, name: str) -> Any:
+        inst = object.__getattribute__(self, '_instance')
+>       attr = getattr(inst, name)
+               ^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'SemverConstraintLock' object has no attribute 'open_lock'
+
+..\..\..\tooling\.venv\Lib\site-packages\gltest\direct\loader.py:427: AttributeError
+______________ test_compare_and_set_single_selection_and_revoke _______________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019F9C6B9EE0>
+
+    def test_compare_and_set_single_selection_and_revoke(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);captured(direct_vm,c)
+                                          ^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_semver.py:48: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_semver.py:17: in captured
+    opened(vm,c,dependency);c.capture('sdk')
+    ^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_semver.py:15: in opened
+    c.open_lock('sdk',json.dumps(inputs(dependency)));serve(vm)
+    ^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <CalldataProxy for <_contract_semver_constraint_lock.SemverConstraintLock object at 0x0000019F9C65B710>>
+name = 'open_lock'
+
+    def _proxy_getattr(self: Any, name: str) -> Any:
+        inst = object.__getattribute__(self, '_instance')
+>       attr = getattr(inst, name)
+               ^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'SemverConstraintLock' object has no attribute 'open_lock'
+
+..\..\..\tooling\.venv\Lib\site-packages\gltest\direct\loader.py:427: AttributeError
+____________________ test_owner_only_and_unique_locked_id _____________________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019F9C74FB00>
+
+    def test_owner_only_and_unique_locked_id(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);captured(direct_vm,c)
+                                          ^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_semver.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_semver.py:17: in captured
+    opened(vm,c,dependency);c.capture('sdk')
+    ^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_semver.py:15: in opened
+    c.open_lock('sdk',json.dumps(inputs(dependency)));serve(vm)
+    ^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <CalldataProxy for <_contract_semver_constraint_lock.SemverConstraintLock object at 0x0000019F9C79F470>>
+name = 'open_lock'
+
+    def _proxy_getattr(self: Any, name: str) -> Any:
+        inst = object.__getattribute__(self, '_instance')
+>       attr = getattr(inst, name)
+               ^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'SemverConstraintLock' object has no attribute 'open_lock'
+
+..\..\..\tooling\.venv\Lib\site-packages\gltest\direct\loader.py:427: AttributeError
+___ test_intersections_from_explicit_synthetic_manifests[ranges0-CONFLICT] ____
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019F9C8093A0>
+ranges = ['>=2.0.0 <3.0.0', '>=3.0.0'], expected = 'CONFLICT'
+
+    @pytest.mark.parametrize('ranges,expected',[(['>=2.0.0 <3.0.0','>=3.0.0'],'CONFLICT'),(['~2.29.0','>=2.29.1 <=2.29.5'],'READY'),(['^0.0.4','0.0.5'],'CONFLICT')])
+    def test_intersections_from_explicit_synthetic_manifests(direct_vm,direct_deploy,ranges,expected):
+        c=deploy(direct_vm,direct_deploy);sources=[]
+        for i,expression in enumerate(ranges):
+            body=json.dumps({'name':'synthetic-'+str(i),'version':'1.0.0','dependencies':{'viem':expression}})
+            url=SOURCE['url'].replace('/package.json','/synthetic-'+str(i)+'.json')
+            sources.append({'url':url,'sha256':hashlib.sha256(body.encode()).hexdigest(),'package':'synthetic-'+str(i),'section':'dependencies','dependency':'viem'})
+            direct_vm.mock_web(re.escape(url),{'status':200,'body':body})
+>       c.open_lock('sdk',json.dumps(sources));c.capture('sdk')
+        ^^^^^^^^^^^
+
+tests\test_semver.py:72: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <CalldataProxy for <_contract_semver_constraint_lock.SemverConstraintLock object at 0x0000019F9C87FAD0>>
+name = 'open_lock'
+
+    def _proxy_getattr(self: Any, name: str) -> Any:
+        inst = object.__getattribute__(self, '_instance')
+>       attr = getattr(inst, name)
+               ^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'SemverConstraintLock' object has no attribute 'open_lock'
+
+..\..\..\tooling\.venv\Lib\site-packages\gltest\direct\loader.py:427: AttributeError
+_____ test_intersections_from_explicit_synthetic_manifests[ranges1-READY] _____
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019F9C8D7240>
+ranges = ['~2.29.0', '>=2.29.1 <=2.29.5'], expected = 'READY'
+
+    @pytest.mark.parametrize('ranges,expected',[(['>=2.0.0 <3.0.0','>=3.0.0'],'CONFLICT'),(['~2.29.0','>=2.29.1 <=2.29.5'],'READY'),(['^0.0.4','0.0.5'],'CONFLICT')])
+    def test_intersections_from_explicit_synthetic_manifests(direct_vm,direct_deploy,ranges,expected):
+        c=deploy(direct_vm,direct_deploy);sources=[]
+        for i,expression in enumerate(ranges):
+            body=json.dumps({'name':'synthetic-'+str(i),'version':'1.0.0','dependencies':{'viem':expression}})
+            url=SOURCE['url'].replace('/package.json','/synthetic-'+str(i)+'.json')
+            sources.append({'url':url,'sha256':hashlib.sha256(body.encode()).hexdigest(),'package':'synthetic-'+str(i),'section':'dependencies','dependency':'viem'})
+            direct_vm.mock_web(re.escape(url),{'status':200,'body':body})
+>       c.open_lock('sdk',json.dumps(sources));c.capture('sdk')
+        ^^^^^^^^^^^
+
+tests\test_semver.py:72: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <CalldataProxy for <_contract_semver_constraint_lock.SemverConstraintLock object at 0x0000019F9C8F8650>>
+name = 'open_lock'
+
+    def _proxy_getattr(self: Any, name: str) -> Any:
+        inst = object.__getattribute__(self, '_instance')
+>       attr = getattr(inst, name)
+               ^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'SemverConstraintLock' object has no attribute 'open_lock'
+
+..\..\..\tooling\.venv\Lib\site-packages\gltest\direct\loader.py:427: AttributeError
+___ test_intersections_from_explicit_synthetic_manifests[ranges2-CONFLICT] ____
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019F9C918720>
+ranges = ['^0.0.4', '0.0.5'], expected = 'CONFLICT'
+
+    @pytest.mark.parametrize('ranges,expected',[(['>=2.0.0 <3.0.0','>=3.0.0'],'CONFLICT'),(['~2.29.0','>=2.29.1 <=2.29.5'],'READY'),(['^0.0.4','0.0.5'],'CONFLICT')])
+    def test_intersections_from_explicit_synthetic_manifests(direct_vm,direct_deploy,ranges,expected):
+        c=deploy(direct_vm,direct_deploy);sources=[]
+        for i,expression in enumerate(ranges):
+            body=json.dumps({'name':'synthetic-'+str(i),'version':'1.0.0','dependencies':{'viem':expression}})
+            url=SOURCE['url'].replace('/package.json','/synthetic-'+str(i)+'.json')
+            sources.append({'url':url,'sha256':hashlib.sha256(body.encode()).hexdigest(),'package':'synthetic-'+str(i),'section':'dependencies','dependency':'viem'})
+            direct_vm.mock_web(re.escape(url),{'status':200,'body':body})
+>       c.open_lock('sdk',json.dumps(sources));c.capture('sdk')
+        ^^^^^^^^^^^
+
+tests\test_semver.py:72: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <CalldataProxy for <_contract_semver_constraint_lock.SemverConstraintLock object at 0x0000019F9C933020>>
+name = 'open_lock'
+
+    def _proxy_getattr(self: Any, name: str) -> Any:
+        inst = object.__getattribute__(self, '_instance')
+>       attr = getattr(inst, name)
+               ^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'SemverConstraintLock' object has no attribute 'open_lock'
+
+..\..\..\tooling\.venv\Lib\site-packages\gltest\direct\loader.py:427: AttributeError
+______________ test_unsupported_range_is_never_silently_relaxed _______________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019F9C9125C0>
+
+    def test_unsupported_range_is_never_silently_relaxed(direct_vm,direct_deploy):
+        c=deploy(direct_vm,direct_deploy);body=BODY.replace('^2.29.0','2.x || >=3.0.0')
+        sources=inputs();sources[0]['sha256']=hashlib.sha256(body.encode()).hexdigest()
+>       c.open_lock('sdk',json.dumps(sources));serve(direct_vm,body)
+        ^^^^^^^^^^^
+
+tests\test_semver.py:79: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <CalldataProxy for <_contract_semver_constraint_lock.SemverConstraintLock object at 0x0000019F9C61A240>>
+name = 'open_lock'
+
+    def _proxy_getattr(self: Any, name: str) -> Any:
+        inst = object.__getattribute__(self, '_instance')
+>       attr = getattr(inst, name)
+               ^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'SemverConstraintLock' object has no attribute 'open_lock'
+
+..\..\..\tooling\.venv\Lib\site-packages\gltest\direct\loader.py:427: AttributeError
+=========================== short test summary info ===========================
+FAILED tests/test_semver.py::test_real_manifest_capture_and_version_selection
+FAILED tests/test_semver.py::test_outside_or_nonstable_candidate_rejected[2.28.9]
+FAILED tests/test_semver.py::test_outside_or_nonstable_candidate_rejected[3.0.0]
+FAILED tests/test_semver.py::test_outside_or_nonstable_candidate_rejected[2.30.0-beta.1]
+FAILED tests/test_semver.py::test_outside_or_nonstable_candidate_rejected[v2.30.0]
+FAILED tests/test_semver.py::test_outside_or_nonstable_candidate_rejected[02.30.0]
+FAILED tests/test_semver.py::test_zero_major_caret_boundaries - AttributeErro...
+FAILED tests/test_semver.py::test_validator_recomputes_range_and_fetch - Attr...
+FAILED tests/test_semver.py::test_compare_and_set_single_selection_and_revoke
+FAILED tests/test_semver.py::test_owner_only_and_unique_locked_id - Attribute...
+FAILED tests/test_semver.py::test_intersections_from_explicit_synthetic_manifests[ranges0-CONFLICT]
+FAILED tests/test_semver.py::test_intersections_from_explicit_synthetic_manifests[ranges1-READY]
+FAILED tests/test_semver.py::test_intersections_from_explicit_synthetic_manifests[ranges2-CONFLICT]
+FAILED tests/test_semver.py::test_unsupported_range_is_never_silently_relaxed
+14 failed in 1.66s

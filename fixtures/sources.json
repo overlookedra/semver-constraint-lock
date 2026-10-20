@@ -1,0 +1,10 @@
+[
+  {
+    "file": "package.json",
+    "url": "https://raw.githubusercontent.com/genlayerlabs/genlayer-js/1b7f50a3a3f2963ea857941b0fb386081dd5c326/package.json",
+    "sha256": "0695982b068f8043a21b6d3ccfc10b5cb7aa5e945186a1e10fbe6f7113dd48cf",
+    "bytes": 2144,
+    "retrieved_on": "2026-10-21",
+    "test_transport": "mocked real byte snapshot"
+  }
+]

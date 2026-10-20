@@ -1,0 +1,52 @@
+{
+  "id": "profile09-ic-semver-constraint-lock",
+  "title": "SemverConstraintLock",
+  "kind": "independent_intelligent_contract",
+  "source": "semver-constraint-lock/semver_constraint_lock.py",
+  "source_sha256": "9b6b1136b0bca3313e95fae6335078992ce8b87f29e839aa8278c977bdb5374d",
+  "direct_tests_passed": 21,
+  "exact_sdk_lint_passed": true,
+  "abi_extraction_passed": true,
+  "constructor_args": [],
+  "prototype": true,
+  "ai_assisted": true,
+  "deployment": {
+    "at": "2026-10-20T23:32:06.126Z",
+    "title": "SemverConstraintLock",
+    "kind": "independent_intelligent_contract",
+    "profileSeq": 9,
+    "contractAddress": "0x3916c2DF6D2BFb12913dfB59277326bC71b0F707",
+    "transactionHash": "0xe8d1b065dd22e1e9b96882c77a439680b1cd9f935295ae8551fc8f45cc391002",
+    "sourceSha256": "9b6b1136b0bca3313e95fae6335078992ce8b87f29e839aa8278c977bdb5374d",
+    "network": "GenLayer Studio",
+    "chainId": 61999,
+    "constructorArgs": [],
+    "state": "FINALIZED",
+    "executionResult": "SUCCESS",
+    "executionMode": "NORMAL",
+    "leaderOnly": false,
+    "consensusResult": "MAJORITY_AGREE",
+    "value": 0,
+    "liveScope": "Constructor only; no real-source catalog locking or full lifecycle exercised live.",
+    "publicSourceBytesVerified": false,
+    "onchainSourceSha256": "9b6b1136b0bca3313e95fae6335078992ce8b87f29e839aa8278c977bdb5374d",
+    "onchainCodeReadbackVerified": true,
+    "publication": null
+  },
+  "publication": null,
+  "independent_review": {
+    "reviewer": "/root/genlayer_projects_pair02",
+    "at": "2026-10-20T20:05:18.592Z",
+    "source_sha256": "8d9001f2fa17f911e9efe60e71d84a3655da0eb73d7e4a1048f3839891239c6b",
+    "result": "no_reproducible_important_issue_found",
+    "scope": "read-only state/consensus/range/budget review; existing tests inspected; not an audit or live deployment verification"
+  },
+  "namespace_repair": {
+    "superseded_source_sha256": "8d9001f2fa17f911e9efe60e71d84a3655da0eb73d7e4a1048f3839891239c6b",
+    "current_source_sha256": "9b6b1136b0bca3313e95fae6335078992ce8b87f29e839aa8278c977bdb5374d",
+    "evidence": "semver-constraint-lock/evidence/namespace-fix.json",
+    "independent_final_review": "closed_after_fix",
+    "exact_byte_sha_binding_remained_effective": true,
+    "independent_review_evidence": "semver-constraint-lock/evidence/namespace-final-review.json"
+  }
+}
